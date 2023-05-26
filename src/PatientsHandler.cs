@@ -8,12 +8,12 @@ public class PatientsHandler
   [Produces(typeof(PatientsHandlerResponseModel))]
   [EndpointSummary("Get a hello message for patients summary")]
   [EndpointDescription("Get a hello message for patients description")]
-  public static async Task<PatientsHandlerResponseModel> Process(IPRService pr)
+  public static async Task<PatientsHandlerResponseModel> Process(IBaseService service)
   {
-    var currentUser = pr.GetCurrentuser();
-    var ipAddress = pr.GetClientIpAddress();
-    var model = await pr.GetRequestModel<PatientsHandlerRequestModel>();
-    var db = await pr.GetDataBase();
+    var currentUser = service.GetCurrentuser();
+    var ipAddress = service.GetClientIpAddress();
+    var model = await service.GetRequestModel<PatientsHandlerRequestModel>();
+    var db = await service.GetDataBase();
 
     return await Task.FromResult(
       new PatientsHandlerResponseModel($"Hello patient {model.Name} from {ipAddress}", DateTime.UtcNow)
