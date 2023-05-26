@@ -1,6 +1,18 @@
 using System.Text.Json;
 using Microsoft.OpenApi.Models;
 
+public class WebAppHelpers
+{
+  public static WebApplication Start(string[] args)
+  {
+    var builder = WebApplication.CreateBuilder(args);
+
+    var app = builder.Build();
+
+    return app;
+  }
+}
+
 public class BaseUser
 {
 }
