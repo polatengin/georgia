@@ -11,10 +11,10 @@ public class DoctorsHandler
   [Consumes(typeof(DoctorsHandlerRequestModel), "application/json")]
   [EndpointSummary("Get a hello message for doctors summary")]
   [EndpointDescription("Get a hello message for doctors description")]
-  public static async Task<DoctorsHandlerResponseModel> Process(IPRService pr, [FromBody]DoctorsHandlerRequestModel model)
+  public static async Task<DoctorsHandlerResponseModel> Process(IBaseService service, [FromBody]DoctorsHandlerRequestModel model)
   {
-    var currentUser = pr.GetCurrentuser();
-    var ipAddress = pr.GetClientIpAddress();
+    var currentUser = service.GetCurrentuser();
+    var ipAddress = service.GetClientIpAddress();
 
     return await Task.FromResult(
       new DoctorsHandlerResponseModel($"Hello doctor {model.Name} from {ipAddress}", DateTime.UtcNow)
