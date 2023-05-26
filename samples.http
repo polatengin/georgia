@@ -1,0 +1,36 @@
+###
+
+POST http://localhost:5000 HTTP/2.0
+content-type: application/json
+
+{
+  "name": "sample"
+}
+
+###
+
+POST http://localhost:5000/doctors HTTP/2.0
+content-type: application/json
+
+{
+  "name": "sample"
+}
+
+###
+
+POST http://localhost:5000/patients HTTP/2.0
+content-type: application/json
+
+{
+  "Name": "{{$datetime iso8601}}"
+}
+
+###
+
+GET http://localhost:5000/swagger HTTP/2.0
+
+###
+
+GET http://localhost:5000/swagger/v1/swagger.json HTTP/2.0
+
+###
