@@ -7,6 +7,9 @@ public class WebAppHelpers
   {
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.Services.AddHttpContextAccessor();
+    builder.Services.AddSingleton<IBaseService, BaseService>();
+
     var app = builder.Build();
 
     return app;
