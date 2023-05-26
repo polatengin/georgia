@@ -7,7 +7,7 @@ public class RootHandler
 
   [Consumes(typeof(RootHandlerRequestModel), "application/json")]
   [Produces(typeof(RootHandlerResponseModel))]
-  public static async Task<RootHandlerResponseModel> Process(IPRService pr, [FromBody]RootHandlerRequestModel model)
+  public static async Task<RootHandlerResponseModel> Process(IBaseService service, [FromBody]RootHandlerRequestModel model)
   {
     return await Task.FromResult(
       new RootHandlerResponseModel("Hello world")
