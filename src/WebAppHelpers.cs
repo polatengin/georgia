@@ -10,7 +10,32 @@ public class WebAppHelpers
     builder.Services.AddHttpContextAccessor();
     builder.Services.AddSingleton<IBaseService, BaseService>();
 
+    builder.Services.AddControllers();
+    builder.Services.AddEndpointsApiExplorer();
+
+    builder.Services.AddSwaggerGen(c =>
+    {
+      c.SwaggerDoc("v1", new OpenApiInfo
+      {
+        Title = "Web API Documentation",
+        Version = "v1",
+        Contact = new OpenApiContact
+        {
+          Name = "Contact Information",
+          Url = new Uri("https://sample.com/contact")
+        },
+        License = new OpenApiLicense
+        {
+          Name = "License",
+          Url = new Uri("https://sample.com/license")
+        }
+      });
+    });
+
     var app = builder.Build();
+
+    app.UseSwagger();
+    app.UseSwaggerUI();
 
     return app;
   }
