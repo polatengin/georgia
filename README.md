@@ -1,4 +1,4 @@
-# Minimap API with Swagger Documentation
+# Minimal API with Swagger Documentation
 
 This code represents a set of API handlers for different endpoints. Each handler is responsible for processing requests and generating responses based on the specified models.
 
